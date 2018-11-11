@@ -1,4 +1,5 @@
 const btn = document.querySelector('#btnMudaLayout')
+const mural = document.querySelector('.mural')
 
 function mudaTexto() {
   if (btn.textContent === 'Blocos') {
@@ -8,4 +9,9 @@ function mudaTexto() {
   }
 }
 
-btn.onclick = mudaTexto
+function mudaLayout() {
+  mural.classList.toggle('mural--linha')
+}
+
+btn.addEventListener('click', mudaTexto)
+btn.addEventListener('click', mudaLayout)
