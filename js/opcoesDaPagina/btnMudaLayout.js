@@ -1,6 +1,8 @@
 const btn = document.querySelector('#btnMudaLayout')
 const mural = document.querySelector('.mural')
 
+btn.classList.remove('no-js')
+
 function mudaTexto() {
   if (btn.textContent === 'Blocos') {
     btn.textContent = 'Linhas'
