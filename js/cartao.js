@@ -26,5 +26,16 @@
         event.target.click()
       }
     })
+
+    cartao.addEventListener('click', function(event) {
+      const elementoSelecionado = event.target
+
+      if (elementoSelecionado.classList.contains('opcoesDoCartao-remove')) {
+        cartao.classList.add('cartao--some')
+        cartao.addEventListener('transitionend', function() {
+          cartao.remove()
+        })
+      }
+    })
   }
 })()
