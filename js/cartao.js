@@ -20,5 +20,11 @@
         cartao.style.backgroundColor = elementoSelecionado.value
       }
     })
+
+    cartao.addEventListener('keydown', function deixaClicarComEnter(event) {
+      if (event.target.classList.contains('opcoesDoCartao-opcao') && (event.key === 'Enter' || event.key === ' ')) {
+        event.target.click()
+      }
+    })
   }
 })()
