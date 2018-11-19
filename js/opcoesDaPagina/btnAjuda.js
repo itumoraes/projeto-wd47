@@ -14,7 +14,7 @@
     ]
 
     ajudas.forEach(function(ajuda) {
-      adicionaCartaoNoMural(ajuda)
+      window.adicionaCartaoNoMural(ajuda)
     })
   })
 
