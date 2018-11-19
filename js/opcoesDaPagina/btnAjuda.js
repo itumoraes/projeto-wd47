@@ -1,4 +1,4 @@
-;(function() {
+;(function(mural) {
   const btnAjuda = document.querySelector('#btnAjuda')
 
   btnAjuda.addEventListener('click', function() {
@@ -14,9 +14,9 @@
     ]
 
     ajudas.forEach(function(ajuda) {
-      window.adicionaCartaoNoMural(ajuda)
+      mural.adicionaCartao(ajuda)
     })
   })
 
   btnAjuda.classList.remove('no-js')
-})()
+})(mural)

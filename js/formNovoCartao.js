@@ -1,4 +1,4 @@
-;(function() {
+;(function(mural) {
   const form = document.querySelector('.formNovoCartao')
   let numeroDoCartao = 0
 
@@ -22,11 +22,11 @@
 
       form.insertBefore(msgErro, btnSubmit)
     } else {
-      window.adicionaCartaoNoMural({ conteudo: textarea.value })
+      mural.adicionaCartao({ conteudo: textarea.value })
 
       textarea.value = ''
     }
   })
 
   form.classList.remove('no-js')
-})()
+})(mural)

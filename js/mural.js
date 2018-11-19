@@ -1,9 +1,9 @@
-;(function() {
+const mural = (function() {
   'use strict'
 
   let numeroDoCartao = 0
 
-  window.adicionaCartaoNoMural = function adicionaCartaoNoMural(cartaoObj) {
+  function adicionaCartaoNoMural(cartaoObj) {
     numeroDoCartao++
 
     const conteudoDoCartao = cartaoObj.conteudo
@@ -68,5 +68,9 @@
     })
 
     $('.mural').append(cartao)
+  }
+
+  return {
+    adicionaCartao: adicionaCartaoNoMural
   }
 })()
