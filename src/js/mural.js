@@ -1,9 +1,9 @@
-const mural = (function() {
+const mural = (() => {
   'use strict'
 
   let numeroDoCartao = 0
 
-  function adicionaCartaoNoMural(cartaoObj) {
+  const adicionaCartao = cartaoObj => {
     numeroDoCartao++
 
     const conteudoDoCartao = cartaoObj.conteudo
@@ -38,30 +38,30 @@ const mural = (function() {
     </article>
     `)
 
-    cartao.on('focusin', function() {
+    cartao.on('focusin', () => {
       cartao.addClass('cartao--focado')
     })
 
-    cartao.on('focusout', function() {
+    cartao.on('focusout', () => {
       cartao.removeClass('cartao--focado')
     })
 
-    cartao.on('change', '.opcoesDoCartao-radioTipo', function(event) {
+    cartao.on('change', '.opcoesDoCartao-radioTipo', event => {
       cartao.css('background-color', event.target.value)
     })
 
-    cartao.on('keydown', function deixaClicarComEnter(event) {
+    cartao.on('keydown', event => {
       if (event.target.classList.contains('opcoesDoCartao-opcao') && (event.key === 'Enter' || event.key === ' ')) {
         event.target.click()
       }
     })
 
-    cartao.on('click', function(event) {
+    cartao.on('click', event => {
       const elementoSelecionado = event.target
 
       if (elementoSelecionado.classList.contains('opcoesDoCartao-remove')) {
         cartao.addClass('cartao--some')
-        cartao.on('transitionend', function() {
+        cartao.on('transitionend', () => {
           cartao.remove()
         })
       }
@@ -71,6 +71,6 @@ const mural = (function() {
   }
 
   return {
-    adicionaCartao: adicionaCartaoNoMural
+    adicionaCartao
   }
 })()
