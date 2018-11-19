@@ -2,19 +2,18 @@
   const btnAjuda = document.querySelector('#btnAjuda')
 
   btnAjuda.addEventListener('click', function() {
-    const ajudas = [
-      {
-        conteudo: 'Bem vindo ao Ceep',
-        cor: '#F05450'
-      },
-      {
-        conteudo: 'Clique no btn Linhas para mudar o layout',
-        cor: '#92C4EC'
-      }
-    ]
+    const xhr = new XMLHttpRequest()
 
-    ajudas.forEach(function(ajuda) {
-      mural.adicionaCartao(ajuda)
+    xhr.open('GET', 'https://ceep.herokuapp.com/cartoes/instrucoes')
+    xhr.responseType = 'json'
+    xhr.send()
+    xhr.addEventListener('load', () => {
+      const obj = xhr.response
+      const ajudas = obj.instrucoes
+
+      ajudas.forEach(function(ajuda) {
+        mural.adicionaCartao(ajuda)
+      })
     })
   })
 
