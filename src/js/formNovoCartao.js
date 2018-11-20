@@ -22,7 +22,7 @@
 
       form.insertBefore(msgErro, btnSubmit)
     } else {
-      mural.adicionaCartao({ conteudo: textarea.value })
+      mural.adicionaCartao({ conteudo: textarea.value.trim() })
 
       textarea.value = ''
     }
