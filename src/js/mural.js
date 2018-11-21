@@ -70,6 +70,22 @@ const mural = (() => {
     $('.mural').append(cartao)
   }
 
+  $.ajax({
+    url: 'https://ceep.herokuapp.com/cartoes/carregar',
+    method: 'GET',
+    data: {
+      usuario: 'italo.moraes@caelum.com.br',
+    },
+    dataType: 'jsonp',
+    success: function(objeto) {
+      const cartoes = objeto.cartoes
+      cartoes.forEach(function(cartao) {
+        console.log(cartao)
+        adicionaCartao(cartao)
+      })
+    }
+  })
+
   return {
     adicionaCartao
   }

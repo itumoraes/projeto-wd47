@@ -17,7 +17,7 @@
 
     cartoes.forEach(function(cartao) {
       infosDoMural.cartoes.push({
-        conteudo: cartao.querySelector('.cartao-conteudo').textValue,
+        conteudo: cartao.querySelector('.cartao-conteudo').textContent,
         cor: getComputedStyle(cartao).getPropertyValue('background-color')
       })
     })
