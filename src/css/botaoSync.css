@@ -1,29 +1,30 @@
 .botaoSync {
-	line-height: 0;
-	border-radius: 50%;
-	color: white;
+  line-height: 0;
+  border-radius: 50%;
+  color: #FFF;
 }
 
 .botaoSync-icone {
-	fill: currentcolor;
-	width: 1em; 
-	height: 1em;
+  fill: currentcolor;
+  width: 1em;
+  height: 1em;
 }
 
 @keyframes rodaRodaJequiti {
-	to {
-		transform: rotate(180deg);
-	}
+  to {
+    transform: rotate(180deg);
+  }
 }
-
 .botaoSync--deuRuim {
-	background: #ED7F6C;
+  background: #ED7F6C;
 }
 
 .botaoSync--esperando {
-	animation: rodaRodaJequiti .5s linear infinite;
+  animation: rodaRodaJequiti 0.5s linear infinite;
 }
 
 .botaoSync--sincronizado {
-	background: #39B5AC;
+  background: #39B5AC;
 }
+
+/*# sourceMappingURL=botaoSync.css.map */

@@ -13,7 +13,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/babel src --out-dir dist --copy-files --presets @babel/preset-env --watch"
+    "start": "./node_modules/.bin/babel src --out-dir dist --copy-files --presets @babel/preset-env --watch",
+    "sass": "sass src/scss:src/css --watch"
   },
   "repository": {
     "type": "git",
