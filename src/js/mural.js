@@ -80,7 +80,6 @@ const mural = (() => {
     success: function(objeto) {
       const cartoes = objeto.cartoes
       cartoes.forEach(function(cartao) {
-        console.log(cartao)
         adicionaCartao(cartao)
       })
     }
