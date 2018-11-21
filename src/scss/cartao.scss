@@ -1,0 +1,98 @@
+@import 'variables';
+
+%cartao-focado {
+	opacity: 1;
+}
+
+%focus-cartao-conteudo {
+	overflow: auto;
+}
+
+.cartao {
+	margin: 32px 16px;
+	padding: 16px;
+	line-height: 1.5;
+	overflow: visible;
+	position: relative;
+	word-wrap: break-word;
+	font-family: "Lucida Grande", "Helvetica", "Arial", sans-serif;
+	background: $yellow;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.1);
+	transition: transform .2s ease-in;
+
+	&:hover, &:focus, .cartao--focado {
+		transform: scale(1.1);
+		z-index: 2;
+	}
+
+	.opcoesDoCartao-opcao {
+		opacity: 0;
+		transition: opacity .2s ease;
+	}
+
+	&:focus .opcoesDoCartao-opcao {
+		@extend %cartao-focado;
+	}
+
+	&:hover .cartao-conteudo,
+	&:focus .cartao-conteudo {
+		@extend %focus-cartao-conteudo;
+	}
+}
+
+.cartao--some {
+	opacity: 0;
+	transition: 0.5s;
+}
+
+.cartao--focado .opcoesDoCartao-opcao {
+	@extend %cartao-focado;
+}
+
+.cartao-conteudo {
+	white-space: pre-line;
+	max-height: 400px;
+	overflow: hidden;
+	font-size: 1em;
+
+	* {
+		font-size: 1em!important;/*desculpa a gente*/
+	}
+
+	img {
+		width: 100%;
+	}
+
+	&:focus {
+		@extend %focus-cartao-conteudo;
+	}
+}
+
+@mixin tamanho-conteudo-do-cartao($tamanho-font, $tamanho-cartao) {
+	font-size: $tamanho-font;
+	width: $tamanho-cartao;
+	flex-basis: $tamanho-cartao;
+}
+
+@media (min-width: 560px) {
+	.cartao {
+		flex-grow: 1;
+		display: inline-block;
+		text-align: left;
+		box-sizing: border-box;
+		vertical-align: top;
+		max-width: 377px;
+	}
+
+	.cartao--textoPequeno .cartao-conteudo {
+		@include tamanho-conteudo-do-cartao(1em, 11em)
+	}
+
+	.cartao--textoMedio .cartao-conteudo {
+		@include tamanho-conteudo-do-cartao(1.5em, 9em)
+	}
+
+	.cartao--textoGrande .cartao-conteudo {
+		@include tamanho-conteudo-do-cartao(2em, 6em)
+	}
+}

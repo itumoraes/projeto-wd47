@@ -12,20 +12,18 @@
     const cartoes = document.querySelectorAll('.cartao')
     const infosDoMural = {
       usuario: 'italo.moraes@caelum.com.br',
-      cartoes: []
-    }
-
-    cartoes.forEach(function(cartao) {
-      infosDoMural.cartoes.push({
-        conteudo: cartao.querySelector('.cartao-conteudo').textContent,
-        cor: getComputedStyle(cartao).getPropertyValue('background-color')
+      cartoes: Array.from(cartoes).map(function(cartao) {
+        return {
+          conteudo: cartao.querySelector('.cartao-conteudo').textContent,
+          cor: getComputedStyle(cartao).getPropertyValue('background-color')
+        }
       })
-    })
+    }
 
     salvadorDeCartoes.send(JSON.stringify(infosDoMural))
     salvadorDeCartoes.addEventListener('load', function() {
       const response = JSON.parse(salvadorDeCartoes.response)
-      console.log(`${response.quantidade} cartoes salvos em ${response.usuario}`)
+      alert(`${response.quantidade} cartoes salvos em ${response.usuario}`)
 
       btnSync.removeClass('botaoSync--esperando')
       btnSync.addClass('botaoSync--sincronizado')

@@ -1,14 +1,16 @@
+@import 'variables';
+
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  background: #EEE;
+  background: $light-gray;
 }
 
 :focus {
-  outline-color: #0082C7;
+  outline-color: $blue;
   outline-style: solid;
   outline-width: 3px;
 }
@@ -16,5 +18,3 @@ body {
 .no-js {
   display: none !important;
 }
-
-/*# sourceMappingURL=reset.css.map */
